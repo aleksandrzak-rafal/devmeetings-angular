@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../model/IProduct';
-import { ProductRepository } from '../services/productRepository'
+import { GameRepository } from '../services/gameRepository'
 
 @Component({
   selector: 'app-promo-product-list',
@@ -10,7 +10,7 @@ import { ProductRepository } from '../services/productRepository'
 export class PromoProductListComponent {
   products: IProduct[];
 
-  constructor(productRepository: ProductRepository) {
+  constructor(productRepository: GameRepository) {
     this.products = productRepository.getProducts();
   }
   

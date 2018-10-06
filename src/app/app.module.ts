@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ProductRepository } from "./services/productRepository";
+import { GameRepository } from "./services/gameRepository";
 
 import { AppComponent } from './app.component';
 import { SingleProductComponent } from './single-product/single-product.component';
@@ -21,7 +21,7 @@ import { PromoProductListComponent } from './promo-product-list/promo-product-li
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductRepository],
+  providers: [GameRepository],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

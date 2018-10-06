@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { IProduct } from '../model/IProduct';
+import { Games } from '../model/games';
 
 @Injectable()
-export class ProductRepository {
-    products: IProduct[] = [
+export class GameRepository {
+    products: Games[] = [
         { name: "GTA V", price: 49, promo: false, tags: ["18+", "violence", "drugs", "bad language"]},
         { name: "FIFA 19", price: 49, promo: false, tags: ["3+"]},
         { name: "The Legend of Zelda: Breath of the Wild", price: 39, promo: true, tags: ["13+", "violence"] },
@@ -11,7 +11,7 @@ export class ProductRepository {
         { name: "Firewatch", price: 19, promo: false, tags: ["12+"] }
       ]
 
-    public getProducts (): IProduct[] {
+    public getProducts (): Games[] {
         return this.products;
     }
 }

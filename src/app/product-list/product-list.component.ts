@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { IProduct } from '../model/IProduct';
-import { ProductRepository } from '../services/productRepository'
+import { GameRepository } from '../services/gameRepository'
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +15,7 @@ export class ProductListComponent implements OnInit {
   public nameSortOrder: string;
   public products: IProduct[];
 
-  constructor (productReposotry: ProductRepository) {
+  constructor (productReposotry: GameRepository) {
     this.searchInput.valueChanges.subscribe(value => this.filterProducts(value));
     this.priceSortOrder = "-";
     this.nameSortOrder = "-";
