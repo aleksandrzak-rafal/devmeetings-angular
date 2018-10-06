@@ -8,7 +8,7 @@
     <button class="col-2" #button (click)="onClickPriceSort(button)">Sort by price ({{ priceSortOrder }})</button>
   </div>
   <div class="row">
-    <ul class="col">
+    <ul class="col" *ngIf="filteredProducts">
       <app-single-product *ngFor="let product of filteredProducts" [product]="product"></app-single-product>
     </ul>
   </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { IProduct } from '../model/IProduct';
-import { GameRepository } from '../services/gameRepository'
+import { GamesService } from '../services/games.service'
 
 @Component({
   selector: 'app-product-list',
@@ -15,15 +15,17 @@ export class ProductListComponent implements OnInit {
   public nameSortOrder: string;
   public products: IProduct[];
 
-  constructor (productReposotry: GameRepository) {
+  constructor (productReposotry: GamesService) {
     this.searchInput.valueChanges.subscribe(value => this.filterProducts(value));
     this.priceSortOrder = "-";
     this.nameSortOrder = "-";
-    this.products = productReposotry.getProducts();
+    productReposotry.getProducts().subscribe((data: IProduct[]) => {
+      this.products = data; 
+      this.filteredProducts = data;
+    });
   }
 
   ngOnInit() {
-    this.filteredProducts = this.products;
   }
   
   onClickPriceSort (button) {

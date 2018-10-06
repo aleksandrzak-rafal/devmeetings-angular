@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from '../model/IProduct';
-import { GameRepository } from '../services/gameRepository'
+import { GamesService } from '../services/games.service'
 
 @Component({
   selector: 'app-promo-product-list',
@@ -10,11 +10,11 @@ import { GameRepository } from '../services/gameRepository'
 export class PromoProductListComponent {
   products: IProduct[];
 
-  constructor(productRepository: GameRepository) {
-    this.products = productRepository.getProducts();
+  constructor(productRepository: GamesService) {
+    productRepository.getProducts().subscribe((data: IProduct[]) => this.products = data);
   }
   
-  getPromoProducts() : IProduct[]{
+  getPromoProducts() : IProduct[] {
     return this.products.filter(function (pr) {
       return pr.promo === true;
     });

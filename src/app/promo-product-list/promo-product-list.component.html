@@ -3,7 +3,7 @@
       <h2>List of promo products: </h2>
     </div>
     <div class="row">
-      <ul class="col">
+      <ul class="col" *ngIf="products">
         <app-single-product *ngFor="let product of getPromoProducts()" [product]="product"></app-single-product>
       </ul>
     </div>

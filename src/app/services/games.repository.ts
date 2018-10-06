@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Games } from '../model/games';
 
 @Injectable()
-export class GameRepository {
+export class GamesRepository {
     products: Games[] = [
         { name: "GTA V", price: 49, promo: false, tags: ["18+", "violence", "drugs", "bad language"]},
         { name: "FIFA 19", price: 49, promo: false, tags: ["3+"]},
