@@ -1,6 +1,9 @@
-<h2>Single product</h2>
-<div>
-  <b>{{ product.name }} {{ product.price | currency: 'USD': 'symbol' }} <span *ngFor="let tag of product.tags">{{ tag }} </span></b>
+<div class="container">
+  <div class="row">
+    <span class="col-4">{{ product.name }}</span>
+    <span class="col-4">{{ product.price | currency: 'USD': 'symbol' }}</span> 
+    <div class="col-4">
+      <span class="badge badge-primary" *ngFor="let tag of product.tags">{{ tag }}</span>
+    </div>
+  </div>
 </div>
-
-

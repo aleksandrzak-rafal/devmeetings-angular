@@ -1,6 +1,10 @@
-<h2>List of promo products: </h2>
-<div>
-  <ul>
-      <li *ngFor="let product of getPromoProducts()"><b>{{ product.name }} {{ product.price | currency:'USD':'symbol' }}</b></li>
-  </ul>
-</div>
+<div class="container">
+    <div class="row">
+      <h2>List of promo products: </h2>
+    </div>
+    <div class="row">
+      <ul class="col">
+        <app-single-product *ngFor="let product of getPromoProducts()" [product]="product"></app-single-product>
+      </ul>
+    </div>
+  </div>

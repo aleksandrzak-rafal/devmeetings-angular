@@ -10,10 +10,10 @@ export class AppComponent {
   title = 'products-viewer-devmeetings-angular';
   
   products: IProduct[] = [
-    { name: "GTA V", price: 99, promo: false, tags: ["violence", "drugs", "bad language"]},
-    { name: "FIFA 19", price: 20, promo: false, tags: ["3+"]},
-    { name: "test3", price: 30, promo: true },
-    { name: "test4", price: 40, promo: true },
-    { name: "test5", price: 50, promo: false }
+    { name: "GTA V", price: 49, promo: false, tags: ["18+", "violence", "drugs", "bad language"]},
+    { name: "FIFA 19", price: 49, promo: false, tags: ["3+"]},
+    { name: "The Legend of Zelda: Breath of the Wild", price: 39, promo: true, tags: ["13+", "violence"] },
+    { name: "Darkest Dungeon", price: 19, promo: true, tags: ["16+", "violence"] },
+    { name: "Firewatch", price: 19, promo: false, tags: ["12+"] }
   ]
 }

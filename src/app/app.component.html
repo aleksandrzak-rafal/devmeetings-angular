@@ -1,10 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="container devmeeting">
+  <div class="jumbotron">
+    <h1>Welcome to {{ title }}!</h1>
+  </div>
+  <div class="row">
+      <app-promo-product-list [products]="products"></app-promo-product-list>
+  </div>
+  <div class="row">
+      <app-product-list [products]="products"></app-product-list>
+  </div>
 </div>
-<app-promo-product-list [products]="products"></app-promo-product-list>
-<app-single-product [product]="products[0]"></app-single-product>
-<app-product-list [products]="products"></app-product-list>
-
