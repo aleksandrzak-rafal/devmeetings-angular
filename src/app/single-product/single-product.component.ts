@@ -1,17 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IProduct } from '../model/IProducs';
+import { Component, Input } from '@angular/core';
+import { IProduct } from '../model/IProduct';
 
 @Component({
   selector: 'app-single-product',
   templateUrl: './single-product.component.html',
   styleUrls: ['./single-product.component.css']
 })
-export class SingleProductComponent implements OnInit {
+export class SingleProductComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   @Input() product: IProduct;
 }

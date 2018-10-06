@@ -1,19 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { IProduct } from '../model/IProducs';
+import { Component } from '@angular/core';
+import { IProduct } from '../model/IProduct';
+import { ProductRepository } from '../services/productRepository'
 
 @Component({
   selector: 'app-promo-product-list',
   templateUrl: './promo-product-list.component.html',
   styleUrls: ['./promo-product-list.component.css']
 })
-export class PromoProductListComponent implements OnInit {
+export class PromoProductListComponent {
+  products: IProduct[];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(productRepository: ProductRepository) {
+    this.products = productRepository.getProducts();
   }
-
-  @Input() products: IProduct[];
   
   getPromoProducts() : IProduct[]{
     return this.products.filter(function (pr) {
