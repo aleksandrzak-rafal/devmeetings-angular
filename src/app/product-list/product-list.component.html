@@ -3,8 +3,13 @@
     <h2>List of products: </h2>
   </div>
   <div class="row">
+    <input class="col-6" type="text" [formControl]="searchInput" placeholder="Search for games... type 'promo' for products on sale">
+    <button class="offset-2 col-2" #button (click)="onClickNameSort(button)">Sort by name ({{ nameSortOrder }})</button>
+    <button class="col-2" #button (click)="onClickPriceSort(button)">Sort by price ({{ priceSortOrder }})</button>
+  </div>
+  <div class="row">
     <ul class="col">
-      <app-single-product *ngFor="let product of products" [product]="product"></app-single-product>
+      <app-single-product *ngFor="let product of filteredProducts" [product]="product"></app-single-product>
     </ul>
   </div>
 </div>

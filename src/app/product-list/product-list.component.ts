@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormControl } from "@angular/forms";
 import { IProduct } from '../model/IProducs';
 
 @Component({
@@ -7,11 +8,79 @@ import { IProduct } from '../model/IProducs';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  public searchInput = new FormControl();
+  public filteredProducts: IProduct[];
+  public priceSortOrder: string;
+  public nameSortOrder: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor () {
+    this.searchInput.valueChanges.subscribe(value => this.filterProducts(value));
+    this.priceSortOrder = "-";
+    this.nameSortOrder = "-";
   }
 
+  ngOnInit() {
+    this.filteredProducts = this.products;
+  }
+  
   @Input() products: IProduct[];
+
+  onClickPriceSort (button) {
+    this.nameSortOrder = "-";
+    if (this.priceSortOrder === "-") {
+      this.priceSortOrder = "ASC";
+    }
+    else if (this.priceSortOrder === "ASC") {
+      this.priceSortOrder = "DESC";
+    }
+    else if (this.priceSortOrder === "DESC") {
+      this.priceSortOrder = "ASC";
+    }
+    this.sortProduct(p => p.price, this.priceSortOrder);
+  }
+
+  onClickNameSort (button) {
+    this.priceSortOrder = "-";
+    if (this.nameSortOrder === "-") {
+      this.nameSortOrder = "ASC";
+    }
+    else if (this.nameSortOrder === "ASC") {
+      this.nameSortOrder = "DESC";
+    }
+    else {
+      this.nameSortOrder = "ASC";
+    }
+    this.sortProduct(p => p.name, this.nameSortOrder);
+  }
+
+  filterProducts(filterString: string): void {
+    filterString = filterString.toLowerCase();
+    this.filteredProducts = this.products.filter(function (pr) {
+      if (filterString !== "") {
+        return pr.name.toLowerCase().includes(filterString) || 
+          pr.price == +filterString || 
+          (filterString === "promo" && pr.promo === true)||
+          pr.tags.filter(function (t) {
+            return t.toLowerCase().includes(filterString);
+          }).length > 0;
+      }
+      else {
+        return true;
+      }
+    });
+  }
+
+  sortProduct<T>(prop: (c: IProduct) => T, order): void {
+    this.filteredProducts.sort((a, b) => {
+        if (prop(a) < prop(b))
+            return -1;
+        if (prop(a) > prop(b))
+            return 1;
+        return 0;
+    });
+
+    if (order === "DESC") {
+      this.filteredProducts.reverse();
+    }   
+  }
 }
