@@ -4,7 +4,7 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Single product: </h2>
-<app-single-product></app-single-product>
-<app-product-list></app-product-list>
+<app-promo-product-list [products]="products"></app-promo-product-list>
+<app-single-product [product]="products[0]"></app-single-product>
+<app-product-list [products]="products"></app-product-list>
 

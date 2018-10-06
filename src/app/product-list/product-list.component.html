@@ -1,12 +1,6 @@
-<h2>List of promo products: </h2>
-<div>
-  <ul>
-      <li *ngFor="let product of getPromoProducts()"><b>{{ product.name }} {{ product.price }}</b></li>
-  </ul>
-</div>
 <h2>List of products: </h2>
 <div>
   <ul>
-    <li *ngFor="let product of products"><b>{{ product.name }} {{ product.price }}</b></li>
+    <li *ngFor="let product of products"><b>{{ product.name }} {{ product.price | currency:'USD':'symbol'}}</b></li>
   </ul>
 </div>

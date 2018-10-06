@@ -1,6 +1,6 @@
 <h2>Single product</h2>
 <div>
-  <b>{{ product.name }} {{ product.price }}</b>
+  <b>{{ product.name }} {{ product.price | currency: 'USD': 'symbol' }} <span *ngFor="let tag of product.tags">{{ tag }} </span></b>
 </div>
 
 

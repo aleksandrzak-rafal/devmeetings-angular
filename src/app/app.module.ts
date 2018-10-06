@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { PromoProductListComponent } from './promo-product-list/promo-product-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingleProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    PromoProductListComponent
   ],
   imports: [
     BrowserModule
